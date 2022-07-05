@@ -5,9 +5,11 @@
 print("Starting NAC...")
 local EventManager = require(script.Parent.EventManager)
 
-local tickrate = 5 -- Ticks a second
+local tickrate = 2 -- Ticks a second
 local running = true
 while running do
-    EventManager:Fire(EventManager.Events.Tick)
+    EventManager:Fire(EventManager.Events.PlayerList)
+    EventManager:Fire(EventManager.Events.Collect)
+    EventManager:Fire(EventManager.Events.Check)
     task.wait(1/tickrate)
 end

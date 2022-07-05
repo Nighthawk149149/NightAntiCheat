@@ -8,7 +8,7 @@ end
 
 -- for i, event in event_functions._functions
 function EventManager:Fire(event, ...)
-    for i=1, #event_functions._functions,1 do
+    for i=1,#event_functions._functions,1 do
         if event_functions._functions[i][1] == event then
             task.spawn(event_functions._functions[i][2], ...)
         end
@@ -16,7 +16,9 @@ function EventManager:Fire(event, ...)
 end
 
 EventManager.Events = {
-    Tick = 1,
+    PlayerList = 1,
+    Collect = 2,
+    Check = 3,
 }
 
 return EventManager
