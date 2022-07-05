@@ -1,0 +1,3 @@
+local AntiCheatData = {}
+
+return AntiCheatData
