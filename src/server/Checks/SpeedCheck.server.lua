@@ -1,13 +1,11 @@
 local EventManager = require(script.Parent.Parent.EventManager)
 local AntiCheatData = require(script.Parent.Parent.AntiCheatData)
 
-EventManager:Connect(EventManager.Events.Checks, function()
-    local players = AntiCheatData.Players
-    for i=1,#players,1 do
-        local player = players[i]
-        if not player.Speed then continue end
-        if player.Speed > AntiCheatData.MAX_SPEED then
-            print("Player " .. player.Name .. " has speed " .. player.Speed .. ".")
+EventManager:Connect(EventManager.Events.Check, function()
+    for userid in AntiCheatData.Players do
+        local player = AntiCheatData.Players[userid]
+        if player.Speed > AntiCheatData.MAX_SPEED/4 then
+            warn("UserId " .. userid .. " has speed " .. player.Speed .. ".")
         end
     end
 end)

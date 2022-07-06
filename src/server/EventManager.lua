@@ -10,6 +10,7 @@ end
 function EventManager:Fire(event, ...)
     for i=1,#event_functions._functions,1 do
         if event_functions._functions[i][1] == event then
+            -- event_functions._functions[i][2](...)
             task.spawn(event_functions._functions[i][2], ...)
         end
     end
